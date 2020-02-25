@@ -1,8 +1,6 @@
 const EventEmitter = require('events')
 const peer = new EventEmitter()
-
-// todo
-const { desktopCapturer } = require('electron')
+const { ipcRenderer, desktopCapturer } = require('electron')
 
 async function getScreenStream() {
     const source = await desktopCapturer.getSources({
@@ -28,5 +26,16 @@ async function getScreenStream() {
 }
 
 getScreenStream()
+
+/**
+ * 监听 robot 响应
+ */
+peer.on('robot', (type, data) => {
+    if (type === 'mouse') {
+        data.screen = { width: window.screen.width, height: window.screen.height }
+    }
+
+    ipcRenderer.send('robot', type, data)
+})
 
 module.exports = peer
