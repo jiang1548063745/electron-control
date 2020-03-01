@@ -13,10 +13,10 @@
   "author": "Jiang",
   "license": "ISC",
   "dependencies": {
+    "about-window": "^1.13.2",
     "concurrently": "^5.1.0",
     "cross-env": "^7.0.0",
     "electron": "^7.1.8",
-    "electron-about-window": "^1.13.2",
     "electron-is-dev": "^1.1.0",
     "electron-rebuild": "^1.10.0",
     "robotjs": "^0.6.0",
