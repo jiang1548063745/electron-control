@@ -1,8 +1,13 @@
+/**
+ * 主界面窗口
+ */
 const { BrowserWindow } = require('electron')
 const isDev = require('electron-is-dev')
 const path = require('path')
 
 let win
+
+let willQuitApp = false
 
 /**
  * 创建主窗口
@@ -13,6 +18,16 @@ function create () {
         height: 300,
         webPreferences: {
             nodeIntegration: true // 打开NODE环境支持
+        }
+    })
+
+    // 关闭窗口
+    win.on('close', (e) => {
+        if(willQuitApp) {
+            win = null
+        } else {
+            e.preventDefault()
+            win.hide()
         }
     })
 
@@ -34,4 +49,13 @@ function send(channel, ...args) {
     win.webContents.send(channel, ...args)
 }
 
-module.exports = { create, send }
+function show() {
+    win.show()
+}
+
+function close() {
+    willQuitApp = true
+    win.close()
+}
+
+module.exports = { create, send, show, close }

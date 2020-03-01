@@ -1,5 +1,5 @@
 {
-  "name": "remote-control",
+  "name": "Mercurius",
   "version": "1.0.0",
   "description": "",
   "main": "app/main/index.js",
@@ -10,16 +10,18 @@
     "start:renderer": "cd app/renderer/src/main && npm start"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jiang",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^5.1.0",
     "cross-env": "^7.0.0",
     "electron": "^7.1.8",
+    "electron-about-window": "^1.13.2",
     "electron-is-dev": "^1.1.0",
     "electron-rebuild": "^1.10.0",
     "robotjs": "^0.6.0",
     "vkey": "^1.0.1",
-    "wait-on": "^4.0.0"
+    "wait-on": "^4.0.0",
+    "ws": "^7.2.1"
   }
 }

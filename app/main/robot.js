@@ -1,3 +1,6 @@
+/**
+ * 远程控制指令
+ */
 const { ipcMain } = require('electron')
 const robot = require('robotjs')
 const vkey = require('vkey')
@@ -10,9 +13,7 @@ function handleMouse(data) {
     const { clientX, clientY, screen, video } = data
 
     let x = clientX * screen.width / video.width
-    let y = clientY * screen.height / video.heigth
-
-    console.log(x, y)
+    let y = clientY * screen.height / video.height
 
     robot.moveMouse(x, y)
     robot.mouseClick()

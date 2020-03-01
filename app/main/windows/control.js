@@ -1,3 +1,6 @@
+/**
+ * 控制窗口
+ */
 const { BrowserWindow } = require('electron')
 const path = require('path')
 

@@ -36,15 +36,13 @@ window.onkeydown = function(e) {
  * 鼠标点击
  */
 window.onmouseup = function(e) {
-    let data = {
-        clientX: e.clientX,
-        clientY: e.clientY,
-        video: {
-            // width: video.getBoundingClientRect().width,
-            // height: video.getBoundingClientRect().height
-            width: video.width,
-            height: video.height
-        }
+    let data = {}
+    
+    data.clientX = e.clientX
+    data.clientY = e.clientY
+    data.video = {
+        width: video.getBoundingClientRect().width,
+        height: video.getBoundingClientRect().height
     }
 
     peer.emit('robot', 'mouse', data)
